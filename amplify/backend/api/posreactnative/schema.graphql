@@ -1,0 +1,81 @@
+enum PaymentProcessors {
+  TYRO
+}
+
+enum Theme {
+  STANDARD
+}
+
+type Save @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  items: [AWSJSON!]
+  accountholderID: ID! @index(name: "byAccountHolder")
+}
+
+type Options @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  options: [AWSJSON]
+  productsID: ID! @index(name: "byProducts")
+}
+
+enum OrderStatus {
+  PENDING
+  COMPLETE
+}
+
+type Orders @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  orderStatus: OrderStatus!
+  accountholderID: ID! @index(name: "byAccountHolder")
+  items: [AWSJSON!]
+  usersID: ID! @index(name: "byUsers")
+  invoiceId: String
+  orderNumber: Int!
+}
+
+type Products @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  name: String
+  price: Float
+  ProductCategories: [ProductCategories] @manyToMany(relationName: "ProductsProductCategories")
+  accountholderID: ID! @index(name: "byAccountHolder")
+  Options: [Options] @hasMany(indexName: "byProducts", fields: ["id"])
+}
+
+type ProductCategories @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  name: String!
+  description: String
+  accountholderID: ID! @index(name: "byAccountHolder")
+  productss: [Products] @manyToMany(relationName: "ProductsProductCategories")
+}
+
+type Users @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  firstname: String
+  lastname: String
+  pin: Int!
+  accountholderID: ID! @index(name: "byAccountHolder")
+  Orders: [Orders] @hasMany(indexName: "byUsers", fields: ["id"])
+}
+
+enum AcccountHolderStatu {
+  ACTIVE
+  SUSPENDED
+}
+
+type AccountHolder @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  accountHolderStatus: AcccountHolderStatu!
+  company: String
+  paymentProcessorId: String
+  profilePicture: AWSURL
+  Users: [ProductCategories] @hasMany(indexName: "byAccountHolder", fields: ["id"])
+  ProductCategories: [ProductCategories] @hasMany(indexName: "byAccountHolder", fields: ["id"])
+  Products: [ProductCategories] @hasMany(indexName: "byAccountHolder", fields: ["id"])
+  Saves: [Save] @hasMany(indexName: "byAccountHolder", fields: ["id"])
+  sub: String!
+  theme: Theme!
+  paymentProcesso: PaymentProcessors
+}
+ 
