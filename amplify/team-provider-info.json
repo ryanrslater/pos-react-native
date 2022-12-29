@@ -10,6 +10,14 @@
       "StackName": "amplify-pos-staging-74137",
       "StackId": "arn:aws:cloudformation:ap-southeast-2:336934593086:stack/amplify-pos-staging-74137/0f501e20-8683-11ed-9d8d-06f03969756c",
       "AmplifyAppId": "d2bg78alnu82ly"
+    },
+    "categories": {
+      "auth": {
+        "pos": {}
+      },
+      "storage": {
+        "s3posstorage48f26b51": {}
+      }
     }
   }
 }

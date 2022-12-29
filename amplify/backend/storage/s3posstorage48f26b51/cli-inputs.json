@@ -1,0 +1,12 @@
+{
+  "resourceName": "s3posstorage48f26b51",
+  "bucketName": "pos-storage-48f26b51",
+  "policyUUID": "2b990905",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

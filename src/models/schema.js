@@ -754,7 +754,7 @@ export const schema = {
                     "name": "Users",
                     "isArray": true,
                     "type": {
-                        "model": "Coupon"
+                        "model": "User"
                     },
                     "isRequired": false,
                     "attributes": [],
@@ -770,7 +770,7 @@ export const schema = {
                     "name": "Orders",
                     "isArray": true,
                     "type": {
-                        "model": "Coupon"
+                        "model": "User"
                     },
                     "isRequired": false,
                     "attributes": [],
@@ -786,7 +786,7 @@ export const schema = {
                     "name": "Terminals",
                     "isArray": true,
                     "type": {
-                        "model": "Coupon"
+                        "model": "User"
                     },
                     "isRequired": false,
                     "attributes": [],
@@ -802,7 +802,7 @@ export const schema = {
                     "name": "Products",
                     "isArray": true,
                     "type": {
-                        "model": "Coupon"
+                        "model": "User"
                     },
                     "isRequired": false,
                     "attributes": [],
@@ -818,7 +818,7 @@ export const schema = {
                     "name": "ProductCategories",
                     "isArray": true,
                     "type": {
-                        "model": "Coupon"
+                        "model": "User"
                     },
                     "isRequired": false,
                     "attributes": [],
@@ -841,7 +841,7 @@ export const schema = {
                     "name": "Coupons",
                     "isArray": true,
                     "type": {
-                        "model": "Coupon"
+                        "model": "User"
                     },
                     "isRequired": false,
                     "attributes": [],
@@ -852,6 +852,20 @@ export const schema = {
                             "accountholderID"
                         ]
                     }
+                },
+                "name": {
+                    "name": "name",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "email": {
+                    "name": "email",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -1027,5 +1041,5 @@ export const schema = {
         }
     },
     "codegenVersion": "3.3.2",
-    "version": "46c9b0e3b523bb6e0a0108527ef22999"
+    "version": "3722094668c8de9d4acc42fcd84cbf89"
 };

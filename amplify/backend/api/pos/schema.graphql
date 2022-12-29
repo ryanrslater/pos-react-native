@@ -1,0 +1,136 @@
+enum CouponType {
+  PERCENT
+  FIXED
+}
+
+type Coupon @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  name: String
+  amount: Float
+  couponType: CouponType
+  code: String
+  expires: AWSDateTime
+  accountholderID: ID! @index(name: "byAccountHolder")
+  expired: Boolean
+}
+
+enum ProcessorType {
+  PAYMENT
+  REFUND
+}
+
+enum PaymentType {
+  CASH
+  CARD
+}
+
+enum PaymentStatus {
+  CONFIRMED
+  PENDING
+  CANCELLED
+  FAILED
+}
+
+type Payments @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  terminalUID: String
+  firstname: String
+  lastname: String
+  agentId: ID
+  orderId: ID
+  paymentStatus: PaymentStatus
+  amount: Float
+  paymentType: PaymentType
+  processorType: ProcessorType
+}
+
+type Alterations {
+  name: String
+  choices: [String]
+  number: String
+  description: String
+}
+
+enum OrderStatus {
+  INPROGRESS
+  CANCELLED
+  SAVED
+  PENDING
+  PAUSED
+  COMPLETE
+}
+
+type ProductCategory @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  name: String
+  description: String
+  accountholderID: ID! @index(name: "byAccountHolder")
+}
+
+type Terminal @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  UID: String
+  tablet: Int
+  accountholderID: ID! @index(name: "byAccountHolder")
+}
+
+type Product @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  item: Item!
+  Categories: [Int]
+  accountholderID: ID! @index(name: "byAccountHolder")
+  special: AWSDateTime
+}
+
+type Item {
+  ItemNames: String!
+  Alterations: [Alterations]
+  price: Float
+  specialPrice: Float
+  unalteredPrice: Float
+}
+
+type Order @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  Items: [Item]!
+  firstname: String
+  lastname: String
+  accountholderID: ID! @index(name: "byAccountHolder")
+  total: Float!
+  remaining: Float!
+  orderStatus: OrderStatus
+  notes: String
+  processorPaymentIds: [ID]
+  processorRefundIds: [ID]
+  paymentIds: [ID]
+}
+
+type User @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  firstname: String
+  lastname: String
+  pin: Int
+  accountholderID: ID! @index(name: "byAccountHolder")
+}
+
+enum AccountStatus {
+  ACTIVE
+  ACCOUNTCREATION
+  BANNED
+}
+
+type AccountHolder @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  sub: String!
+  accountStatus: AccountStatus!
+  Users: [User] @hasMany(indexName: "byAccountHolder", fields: ["id"])
+  Orders: [User] @hasMany(indexName: "byAccountHolder", fields: ["id"])
+  Terminals: [User] @hasMany(indexName: "byAccountHolder", fields: ["id"])
+  Products: [User] @hasMany(indexName: "byAccountHolder", fields: ["id"])
+  ProductCategories: [User] @hasMany(indexName: "byAccountHolder", fields: ["id"])
+  stripeId: String
+  Coupons: [User] @hasMany(indexName: "byAccountHolder", fields: ["id"])
+  name: String!
+  email: String
+}
+ 

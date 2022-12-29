@@ -349,13 +349,15 @@ type EagerAccountHolder = {
   readonly id: string;
   readonly sub: string;
   readonly accountStatus: AccountStatus | keyof typeof AccountStatus;
-  readonly Users?: (Coupon | null)[] | null;
-  readonly Orders?: (Coupon | null)[] | null;
-  readonly Terminals?: (Coupon | null)[] | null;
-  readonly Products?: (Coupon | null)[] | null;
-  readonly ProductCategories?: (Coupon | null)[] | null;
+  readonly Users?: (User | null)[] | null;
+  readonly Orders?: (User | null)[] | null;
+  readonly Terminals?: (User | null)[] | null;
+  readonly Products?: (User | null)[] | null;
+  readonly ProductCategories?: (User | null)[] | null;
   readonly stripeId?: string | null;
-  readonly Coupons?: (Coupon | null)[] | null;
+  readonly Coupons?: (User | null)[] | null;
+  readonly name: string;
+  readonly email?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -368,13 +370,15 @@ type LazyAccountHolder = {
   readonly id: string;
   readonly sub: string;
   readonly accountStatus: AccountStatus | keyof typeof AccountStatus;
-  readonly Users: AsyncCollection<Coupon>;
-  readonly Orders: AsyncCollection<Coupon>;
-  readonly Terminals: AsyncCollection<Coupon>;
-  readonly Products: AsyncCollection<Coupon>;
-  readonly ProductCategories: AsyncCollection<Coupon>;
+  readonly Users: AsyncCollection<User>;
+  readonly Orders: AsyncCollection<User>;
+  readonly Terminals: AsyncCollection<User>;
+  readonly Products: AsyncCollection<User>;
+  readonly ProductCategories: AsyncCollection<User>;
   readonly stripeId?: string | null;
-  readonly Coupons: AsyncCollection<Coupon>;
+  readonly Coupons: AsyncCollection<User>;
+  readonly name: string;
+  readonly email?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
