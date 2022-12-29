@@ -1,26 +1,15 @@
 {
-  "dev": {
+  "staging": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-posreactnative-dev-113806-authRole",
-      "UnauthRoleArn": "arn:aws:iam::336934593086:role/amplify-posreactnative-dev-113806-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::336934593086:role/amplify-posreactnative-dev-113806-authRole",
+      "AuthRoleName": "amplify-pos-staging-74137-authRole",
+      "UnauthRoleArn": "arn:aws:iam::336934593086:role/amplify-pos-staging-74137-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::336934593086:role/amplify-pos-staging-74137-authRole",
       "Region": "ap-southeast-2",
-      "DeploymentBucketName": "amplify-posreactnative-dev-113806-deployment",
-      "UnauthRoleName": "amplify-posreactnative-dev-113806-unauthRole",
-      "StackName": "amplify-posreactnative-dev-113806",
-      "StackId": "arn:aws:cloudformation:ap-southeast-2:336934593086:stack/amplify-posreactnative-dev-113806/c6d0fb70-805a-11ed-8890-02f9d35fd670",
-      "AmplifyAppId": "d2q3mltjflhdke"
-    },
-    "categories": {
-      "storage": {
-        "dynamocc7b106e": {}
-      },
-      "api": {
-        "posreactnative": {}
-      },
-      "auth": {
-        "posreactnative": {}
-      }
+      "DeploymentBucketName": "amplify-pos-staging-74137-deployment",
+      "UnauthRoleName": "amplify-pos-staging-74137-unauthRole",
+      "StackName": "amplify-pos-staging-74137",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:336934593086:stack/amplify-pos-staging-74137/0f501e20-8683-11ed-9d8d-06f03969756c",
+      "AmplifyAppId": "d2bg78alnu82ly"
     }
   }
 }

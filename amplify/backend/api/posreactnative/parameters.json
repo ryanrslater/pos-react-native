@@ -1,6 +1,0 @@
-{
-  "AppSyncApiName": "posreactnative",
-  "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false,
-  "AuthModeLastUpdated": "2022-12-20T20:34:08.982Z"
-}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Button } from 'react-native';
 
 import { Amplify, API, graphqlOperation, Auth } from 'aws-amplify';
@@ -14,20 +14,24 @@ function SignOutButton() {
 
 function App() {
 
-  const { user } = useAuthenticator()
+  // const { user } = useAuthenticator()
 
-  const fetchData = async () => {
-    if (!user) return
+  // const fetchData = async () => {
+  //   if (!user) return
 
-    const {attributes} = await Auth.currentAuthenticatedUser()
+  //   const {attributes} = await Auth.currentAuthenticatedUser()
   
-    const data = await API.graphql({
-      query: getAccountHolder,
-      variables: {
-        sub: attributes.sub
-      }
-    })
-  }
+  //   const data = await API.graphql({
+  //     query: getAccountHolder,
+  //     variables: {
+  //       sub: attributes.sub
+  //     }
+  //   })
+  //   console.log(data)
+  // }
+  // useEffect(() => {
+  //   fetchData()
+  // }, [])
 
   return (
     <Authenticator.Provider>

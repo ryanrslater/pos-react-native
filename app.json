@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "pos-react-native",
-    "slug": "pos-react-native",
+    "slug": "pos",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -28,6 +28,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b8380dc6-be38-435c-94eb-763ff49736f3"
+      }
+    },
+    "owner": "ryan.slater"
   }
 }
